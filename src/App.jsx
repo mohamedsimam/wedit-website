@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { CheckCircle2, MonitorSmartphone, ShoppingCart, Rocket, Code, Store, Menu, X, Facebook, Instagram, Mail, MessageCircle, Briefcase } from 'lucide-react'
 import './App.css'
+import logoWedit from './assets/logo-wedit.png'
+import simamCeo from './assets/simam-ceo.png'
 
 function App() {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
@@ -39,7 +41,7 @@ function App() {
       <nav className={`navbar ${scrolled ? 'glass nav-scrolled' : ''}`}>
         <div className="container nav-container">
           <div className="nav-brand">
-            <img src="/src/assets/logo-wedit.png" alt="Wedit Logo" className="nav-logo" />
+            <img src={logoWedit} alt="Wedit Logo" className="nav-logo" />
           </div>
           <div className="nav-links">
             <a href="#services">Services</a>
@@ -108,7 +110,7 @@ function App() {
                 <h4 className="ceo-card-heading">Book a free 30-minute <br/> consultation to get started!</h4>
                 
                 <div className="ceo-photo-container">
-                  <img src="/src/assets/simam-ceo.png" alt="Mohamed Simam Lafeer" className="ceo-photo" />
+                  <img src={simamCeo} alt="Mohamed Simam Lafeer" className="ceo-photo" />
                   <div className="ceo-badge">CEO</div>
                 </div>
                 
@@ -343,7 +345,7 @@ function App() {
       <footer className="footer glass">
         <div className="container footer-content-centered">
             <div className="footer-logo-centered">
-              <img src="/src/assets/logo-wedit.png" alt="Wedit Logo" className="footer-logo" />
+              <img src={logoWedit} alt="Wedit Logo" className="footer-logo" />
               <h2 className="footer-tagline-small">Wedit Digital Agency</h2>
             </div>
             
