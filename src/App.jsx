@@ -29,7 +29,6 @@ function App() {
           </div>
           <div className="nav-links">
             <a href="#services">Services</a>
-            <a href="#services">Services</a>
             <a href="#process">Process</a>
             <a href="#consultation" className="btn btn-primary">Book Consultation</a>
           </div>
@@ -266,6 +265,10 @@ function App() {
 
       {/* CTA/Contact Section */}
       <section id="consultation" className="contact-cta">
+        <div className="consultation-bg">
+          <div className="consultation-blob blob-3"></div>
+          <div className="consultation-blob blob-4"></div>
+        </div>
         <div className="container">
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
