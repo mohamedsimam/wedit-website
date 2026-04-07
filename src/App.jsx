@@ -275,18 +275,27 @@ function App() {
 
       {/* Footer */}
       <footer className="footer glass">
-        <div className="container footer-content">
-           <div className="footer-brand">
-             <img src="/src/assets/logo-wedit.png" alt="Wedit Logo" className="footer-logo" />
-             <p className="text-muted mt-2">Custom high-quality web development services for the modern internet.</p>
-             <div className="footer-contacts mt-4">
-               <a href="mailto:wedit2026@gmail.com" className="contact-link">wedit2026@gmail.com</a>
-               <a href="https://www.instagram.com/wedit_official?igsh=MWZqaDZ5d25zdHk0ZQ==" target="_blank" rel="noopener noreferrer" className="contact-link">Instagram: @wedit_official</a>
-             </div>
-           </div>
-           <div className="footer-links">
-             <p>&copy; {new Date().getFullYear()} Wedit. All Rights Reserved.</p>
-           </div>
+        <div className="container footer-content-centered">
+            <div className="footer-logo-centered">
+              <img src="/src/assets/logo-wedit.png" alt="Wedit Logo" className="footer-logo" />
+              <p className="text-muted">Gearing up your business for the digital world.</p>
+            </div>
+            
+            <div className="footer-socials">
+              <a href="https://www.facebook.com/share/14ZxfHhRhYJ/" target="_blank" rel="noopener noreferrer" className="social-link" title="Facebook">
+                <Facebook size={24} />
+              </a>
+              <a href="https://www.instagram.com/wedit_official?igsh=MWZqaDZ5d25zdHk0ZQ==" target="_blank" rel="noopener noreferrer" className="social-link" title="Instagram">
+                <Instagram size={24} />
+              </a>
+              <a href="mailto:wedit2026@gmail.com" className="social-link" title="Email">
+                <Mail size={24} />
+              </a>
+            </div>
+
+            <div className="footer-legal">
+              <p>&copy; {new Date().getFullYear()} Wedit. All Rights Reserved.</p>
+            </div>
         </div>
       </footer>
     </div>
