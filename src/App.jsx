@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { CheckCircle2, MonitorSmartphone, ShoppingCart, Rocket, Code, Store, Menu, X } from 'lucide-react'
+import { CheckCircle2, MonitorSmartphone, ShoppingCart, Rocket, Code, Store, Menu, X, Facebook, Instagram, Mail } from 'lucide-react'
 import './App.css'
 
 function App() {
@@ -68,7 +68,7 @@ function App() {
           >
             <h1 className="hero-title">
               Build a stunning <br/>
-              <span className="text-gradient">Portfolio or business</span> <br/>
+              <span className="text-gradient">Portfolio or Business</span> <br/>
               Website with Wedit
             </h1>
             
@@ -89,20 +89,7 @@ function App() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="hero-image-wrapper"
           >
-            <div className="hero-image-placeholder glass">
-               {/* Decorative structural UI */}
-               <div className="ui-header glass">
-                 <div className="ui-dots">
-                   <span></span><span></span><span></span>
-                 </div>
-               </div>
-               <div className="ui-body">
-                 <div className="ui-line line-1"></div>
-                 <div className="ui-line line-2"></div>
-                 <div className="ui-line line-3"></div>
-                 <div className="ui-box"></div>
-               </div>
-            </div>
+            <img src="/src/assets/hero-new.png" alt="Wedit Platform" className="hero-img-full" />
           </motion.div>
         </div>
       </section>
