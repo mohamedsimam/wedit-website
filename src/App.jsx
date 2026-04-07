@@ -4,6 +4,20 @@ import { CheckCircle2, MonitorSmartphone, ShoppingCart, Rocket, Code, Store, Men
 import './App.css'
 
 function App() {
+  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    service: 'Business Website',
+    goal: ''
+  });
+
+  const handleWhatsAppSubmit = (e) => {
+    e.preventDefault();
+    const message = `Hi Wedit! I'm ${formData.name}. I'm interested in a ${formData.service} and my goal is: ${formData.goal}`;
+    const whatsappUrl = `https://wa.me/94768677576?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+    setIsBookingModalOpen(false);
+  };
   const [scrolled, setScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -104,9 +118,9 @@ function App() {
                 </div>
 
                 <div className="ceo-actions">
-                  <a href="https://wa.me/94768677576" className="btn btn-consultation-hero">
+                  <button onClick={() => setIsBookingModalOpen(true)} className="btn btn-consultation-hero">
                     Book a free consultation →
-                  </a>
+                  </button>
                   <p className="message-subtext-hero">or <a href="mailto:wedit2026@gmail.com">leave us a message</a></p>
                 </div>
               </div>
@@ -353,6 +367,73 @@ function App() {
             </div>
         </div>
       </footer>
+
+      {/* Booking Modal */}
+      <AnimatePresence>
+        {isBookingModalOpen && (
+          <motion.div 
+            className="modal-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.div 
+              className="booking-modal"
+              initial={{ scale: 0.9, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.9, y: 20 }}
+            >
+              <button className="btn-close-modal" onClick={() => setIsBookingModalOpen(false)}>
+                <X />
+              </button>
+              
+              <h2>Start Your <span className="text-gradient">Journey</span></h2>
+              <p>Tell us a bit about your project and let's make it happen!</p>
+
+              <form className="booking-form" onSubmit={handleWhatsAppSubmit}>
+                <div className="form-group">
+                  <label>Full Name</label>
+                  <input 
+                    type="text" 
+                    placeholder="Enter your name" 
+                    required 
+                    value={formData.name}
+                    onChange={(e) => setFormData({...formData, name: e.target.value})}
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label>Type of Website</label>
+                  <select 
+                    value={formData.service}
+                    onChange={(e) => setFormData({...formData, service: e.target.value})}
+                  >
+                    <option>Business Website</option>
+                    <option>Personal Portfolio</option>
+                    <option>E-commerce Store</option>
+                    <option>UI/UX Redesign</option>
+                  </select>
+                </div>
+
+                <div className="form-group">
+                  <label>Your Project Goal</label>
+                  <textarea 
+                    placeholder="Tell us what you want to achieve..." 
+                    rows="4" 
+                    required
+                    value={formData.goal}
+                    onChange={(e) => setFormData({...formData, goal: e.target.value})}
+                  ></textarea>
+                </div>
+
+                <button type="submit" className="btn btn-consultation-hero">
+                  Send via WhatsApp →
+                </button>
+              </form>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }
