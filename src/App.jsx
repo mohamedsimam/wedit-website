@@ -97,10 +97,6 @@ function App() {
               <div className="ceo-info">
                 <h3 className="ceo-name">Mohamed Simam Lafeer</h3>
                 <p className="ceo-title">The Founder & CEO of Wedit</p>
-                <div className="ceo-stats">
-                  <span>50+ Projects</span>
-                  <span>100% Satisfied</span>
-                </div>
               </div>
             </div>
           </motion.div>
@@ -277,14 +273,15 @@ function App() {
             className="contact-card glass"
           >
             <div className="contact-info">
-              <h2>Book a <span className="text-gradient">Free Consultation</span></h2>
-              <p>Ready to scale your business? Let's discuss your project and target goal in a 30-minute discovery call.</p>
+              <h2 className="consultation-main-heading">Book a free 30-minute <br/> consultation to get started!</h2>
+              <p>Ready to scale your business? Let's discuss your project and target goal in a discovery call.</p>
               
               <div className="contact-details">
-                <a href="https://wa.me/94768677576" className="btn btn-primary cta-btn">
-                   Schedule Now (WhatsApp)
+                <a href="https://wa.me/94768677576" className="btn btn-consultation">
+                   Book a free consultation →
                 </a>
               </div>
+              <p className="message-subtext">or <a href="mailto:wedit2026@gmail.com">leave us a message</a></p>
             </div>
           </motion.div>
         </div>
