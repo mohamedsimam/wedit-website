@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { CheckCircle2, MonitorSmartphone, ShoppingCart, Rocket, Code, Store } from 'lucide-react'
+import { CheckCircle2, MonitorSmartphone, ShoppingCart, Rocket, Code, Store, Menu, X } from 'lucide-react'
 import './App.css'
 
 function App() {
   const [scrolled, setScrolled] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,7 +32,29 @@ function App() {
             <a href="#process">Process</a>
             <a href="https://wa.me/94768677576" className="btn btn-primary">Start a Project</a>
           </div>
+
+          <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            {isMenuOpen ? <X /> : <Menu />}
+          </button>
         </div>
+
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div 
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="mobile-menu glass"
+            >
+              <div className="mobile-links">
+                <a href="#services" onClick={() => setIsMenuOpen(false)}>Services</a>
+                <a href="#process" onClick={() => setIsMenuOpen(false)}>Process</a>
+                <a href="https://wa.me/94768677576" className="btn btn-primary" onClick={() => setIsMenuOpen(false)}>Start a Project</a>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
 
       {/* Hero Section */}
@@ -43,18 +66,9 @@ function App() {
             transition={{ duration: 0.8 }}
             className="hero-text-wrapper"
           >
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3 }}
-              className="badge glass"
-            >
-              🔥 Show Your Talent to the World
-            </motion.div>
-            
             <h1 className="hero-title">
               Build a stunning <br/>
-              <span className="text-gradient">Personal Portfolio</span> <br/>
+              <span className="text-gradient">Portfolio or business</span> <br/>
               Website with Wedit
             </h1>
             
