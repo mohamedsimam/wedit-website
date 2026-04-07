@@ -243,7 +243,21 @@ function App() {
             Our <span className="text-gradient">Creations</span>
           </motion.h2>
           
-          <div className="portfolio-grid">
+          <motion.div 
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+            variants={{
+              hidden: { opacity: 0 },
+              show: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.2
+                }
+              }
+            }}
+            className="portfolio-grid"
+          >
             {[
               { title: 'Luxe E-commerce', type: 'Full System', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800' },
               { title: 'Tech Portfolio', type: 'Personal Site', image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=800' },
@@ -251,17 +265,17 @@ function App() {
             ].map((project, index) => (
               <motion.div 
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                viewport={{ once: true }}
+                variants={{
+                  hidden: { opacity: 0, y: 30 },
+                  show: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+                }}
                 className="project-card glass"
               >
                 <div className="project-image">
                   <img src={project.image} alt={project.title} />
                   <div className="project-overlay">
                     <span className="project-type">{project.type}</span>
-                    <button className="btn btn-primary btn-sm">Explore</button>
+                    <button className="btn btn-consultation-hero btn-sm" style={{ width: 'auto', padding: '0.75rem 1.5rem' }}>View Demo</button>
                   </div>
                 </div>
                 <div className="project-info">
@@ -269,7 +283,7 @@ function App() {
                 </div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
