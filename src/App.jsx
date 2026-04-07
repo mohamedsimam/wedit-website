@@ -89,14 +89,26 @@ function App() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="hero-image-wrapper"
           >
-            <div className="ceo-card glass">
-              <div className="ceo-photo-container">
-                <img src="/src/assets/simam-ceo.png" alt="Mohamed Simam Lafeer" className="ceo-photo" />
-                <div className="ceo-badge">CEO</div>
-              </div>
-              <div className="ceo-info">
-                <h3 className="ceo-name">Mohamed Simam Lafeer</h3>
-                <p className="ceo-title">The Founder & CEO of Wedit</p>
+            <div className="ceo-card-wrapper">
+              <div className="ceo-card-premium">
+                <h4 className="ceo-card-heading">Book a free 30-minute <br/> consultation to get started!</h4>
+                
+                <div className="ceo-photo-container">
+                  <img src="/src/assets/simam-ceo.png" alt="Mohamed Simam Lafeer" className="ceo-photo" />
+                  <div className="ceo-badge">CEO</div>
+                </div>
+                
+                <div className="ceo-info">
+                  <h3 className="ceo-name">Mohamed Simam Lafeer</h3>
+                  <p className="ceo-title">The Founder & CEO of Wedit</p>
+                </div>
+
+                <div className="ceo-actions">
+                  <a href="https://wa.me/94768677576" className="btn btn-consultation-hero">
+                    Book a free consultation →
+                  </a>
+                  <p className="message-subtext-hero">or <a href="mailto:wedit2026@gmail.com">leave us a message</a></p>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -256,34 +268,6 @@ function App() {
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* CTA/Contact Section */}
-      <section id="consultation" className="contact-cta">
-        <div className="consultation-bg">
-          <div className="consultation-blob blob-3"></div>
-          <div className="consultation-blob blob-4"></div>
-        </div>
-        <div className="container">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="contact-card glass"
-          >
-            <div className="contact-info">
-              <h2 className="consultation-main-heading">Book a free 30-minute <br/> consultation to get started!</h2>
-              <p>Ready to scale your business? Let's discuss your project and target goal in a discovery call.</p>
-              
-              <div className="contact-details">
-                <a href="https://wa.me/94768677576" className="btn btn-consultation">
-                   Book a free consultation →
-                </a>
-              </div>
-              <p className="message-subtext">or <a href="mailto:wedit2026@gmail.com">leave us a message</a></p>
-            </div>
-          </motion.div>
         </div>
       </section>
 
