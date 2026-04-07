@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { CheckCircle2, MonitorSmartphone, ShoppingCart, Rocket, Code, Store, Menu, X, Facebook, Instagram, Mail } from 'lucide-react'
+import { CheckCircle2, MonitorSmartphone, ShoppingCart, Rocket, Code, Store, Menu, X, Facebook, Instagram, Mail, MessageCircle, Briefcase } from 'lucide-react'
 import './App.css'
 
 function App() {
@@ -29,8 +29,9 @@ function App() {
           </div>
           <div className="nav-links">
             <a href="#services">Services</a>
+            <a href="#services">Services</a>
             <a href="#process">Process</a>
-            <a href="https://wa.me/94768677576" className="btn btn-primary">Start a Project</a>
+            <a href="#consultation" className="btn btn-primary">Book Consultation</a>
           </div>
 
           <button className="menu-toggle" onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -89,7 +90,20 @@ function App() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="hero-image-wrapper"
           >
-            <img src="/src/assets/hero-new.png" alt="Wedit Platform" className="hero-img-full" />
+            <div className="ceo-card glass">
+              <div className="ceo-photo-container">
+                <img src="/src/assets/simam-ceo.png" alt="Mohamed Simam Lafeer" className="ceo-photo" />
+                <div className="ceo-badge">CEO</div>
+              </div>
+              <div className="ceo-info">
+                <h3 className="ceo-name">Mohamed Simam Lafeer</h3>
+                <p className="ceo-title">The Founder & CEO of Wedit</p>
+                <div className="ceo-stats">
+                  <span>50+ Projects</span>
+                  <span>100% Satisfied</span>
+                </div>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -212,7 +226,7 @@ function App() {
       </section>
 
       {/* Process Section */}
-      <section className="process">
+      <section id="process" className="process">
         <div className="container">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -251,7 +265,7 @@ function App() {
       </section>
 
       {/* CTA/Contact Section */}
-      <section id="contact" className="contact-cta">
+      <section id="consultation" className="contact-cta">
         <div className="container">
           <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
@@ -260,12 +274,12 @@ function App() {
             className="contact-card glass"
           >
             <div className="contact-info">
-              <h2>Gear up your business for the <span className="text-gradient">Digital World!</span></h2>
-              <p>Wait no more — Get your modern, high-quality website today. Contact us via WhatsApp to start.</p>
+              <h2>Book a <span className="text-gradient">Free Consultation</span></h2>
+              <p>Ready to scale your business? Let's discuss your project and target goal in a 30-minute discovery call.</p>
               
               <div className="contact-details">
                 <a href="https://wa.me/94768677576" className="btn btn-primary cta-btn">
-                  Message +94 76 867 7576
+                   Schedule Now (WhatsApp)
                 </a>
               </div>
             </div>
@@ -277,11 +291,13 @@ function App() {
       <footer className="footer glass">
         <div className="container footer-content-centered">
             <div className="footer-logo-centered">
-              <img src="/src/assets/logo-wedit.png" alt="Wedit Logo" className="footer-logo" />
-              <p className="text-muted">Gearing up your business for the digital world.</p>
+              <h2 className="footer-tagline text-gradient">Gearing up your business for the digital world.</h2>
             </div>
             
             <div className="footer-socials">
+              <a href="https://wa.me/94768677576" target="_blank" rel="noopener noreferrer" className="social-link" title="WhatsApp">
+                <MessageCircle size={24} />
+              </a>
               <a href="https://www.facebook.com/share/14ZxfHhRhYJ/" target="_blank" rel="noopener noreferrer" className="social-link" title="Facebook">
                 <Facebook size={24} />
               </a>
