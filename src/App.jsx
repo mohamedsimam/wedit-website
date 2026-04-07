@@ -211,8 +211,7 @@ function App() {
         <div className="container">
           <div className="why-grid">
             <div className="why-header">
-              <img src="/src/assets/logo-wedit.png" alt="Wedit Logo" className="footer-logo" />
-              <p className="text-muted">Gearing up your business for the digital world.</p>
+              <h2 className="why-tagline text-gradient">Gearing up your business for the digital world.</h2>
             </div>
             <div className="why-items">
               {[
@@ -228,6 +227,48 @@ function App() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Portfolio / Blog Section */}
+      <section id="portfolio" className="portfolio">
+        <div className="container">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="section-title center"
+          >
+            Our <span className="text-gradient">Creations</span>
+          </motion.h2>
+          
+          <div className="portfolio-grid">
+            {[
+              { title: 'Luxe E-commerce', type: 'Full System', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800' },
+              { title: 'Tech Portfolio', type: 'Personal Site', image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=800' },
+              { title: 'Dynamic Biz', type: 'Business Web', image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80&w=800' }
+            ].map((project, index) => (
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="project-card glass"
+              >
+                <div className="project-image">
+                  <img src={project.image} alt={project.title} />
+                  <div className="project-overlay">
+                    <span className="project-type">{project.type}</span>
+                    <button className="btn btn-primary btn-sm">Explore</button>
+                  </div>
+                </div>
+                <div className="project-info">
+                  <h3>{project.title}</h3>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -271,11 +312,11 @@ function App() {
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="footer glass">
         <div className="container footer-content-centered">
             <div className="footer-logo-centered">
-              <h2 className="footer-tagline text-gradient">Gearing up your business for the digital world.</h2>
+              <img src="/src/assets/logo-wedit.png" alt="Wedit Logo" className="footer-logo" />
+              <h2 className="footer-tagline-small">Wedit Digital Agency</h2>
             </div>
             
             <div className="footer-socials">
