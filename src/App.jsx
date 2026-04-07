@@ -172,7 +172,7 @@ function App() {
               className="service-card glass"
             >
               <div className="service-icon"><ShoppingCart /></div>
-              <h3>WhatsApp Order System</h3>
+              <h3>Online website with WhatsApp Order System</h3>
               <p>Simple & fast selling solutions directly through your business WhatsApp.</p>
               <ul className="service-features">
                 <li><CheckCircle2 size={16} /> Instant notifications</li>
