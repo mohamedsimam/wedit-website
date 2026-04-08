@@ -1,9 +1,13 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { CheckCircle2, MonitorSmartphone, ShoppingCart, Rocket, Code, Store, Menu, X, Facebook, Instagram, Mail, MessageCircle, Briefcase } from 'lucide-react'
+import { CheckCircle2, MonitorSmartphone, ShoppingCart, Rocket, Code, Store, Menu, X, Facebook, Instagram, Mail, MessageCircle, ExternalLink } from 'lucide-react'
 import './App.css'
 import logoWedit from './assets/logo-wedit.png'
 import simamCeo from './assets/simam-ceo.png'
+import nobrandMockup from './assets/nobrand-mockup.png'
+import curatedTableMockup from './assets/curated-table-mockup.png'
+import atelierMockup from './assets/atelier-mockup.png'
+import stickerbookMockup from './assets/stickerbook-mockup.png'
 
 function App() {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
@@ -247,17 +251,20 @@ function App() {
         </div>
       </section>
 
-      {/* Portfolio / Blog Section */}
+      {/* Portfolio / Our Creations Section */}
       <section id="portfolio" className="portfolio">
         <div className="container">
-          <motion.h2 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="section-title center"
+            className="section-header"
           >
-            Our <span className="text-gradient">Creations</span>
-          </motion.h2>
+            <h2 className="section-title center">
+              Our <span className="text-gradient">Creations</span>
+            </h2>
+            <p className="section-subtitle center">Real websites we've built — click to explore them live.</p>
+          </motion.div>
           
           <motion.div 
             initial="hidden"
@@ -268,36 +275,76 @@ function App() {
               show: {
                 opacity: 1,
                 transition: {
-                  staggerChildren: 0.2
+                  staggerChildren: 0.15
                 }
               }
             }}
             className="portfolio-grid"
           >
             {[
-              { title: 'Luxe E-commerce', type: 'Full System', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800' },
-              { title: 'Tech Portfolio', type: 'Personal Site', image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=800' },
-              { title: 'Dynamic Biz', type: 'Business Web', image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80&w=800' }
+              {
+                title: 'NO BRAND',
+                type: 'Fashion Brand',
+                desc: 'Minimalist luxury streetwear brand with a sculptural editorial aesthetic.',
+                image: nobrandMockup,
+                url: 'https://nobarnd.netlify.app',
+                tag: 'Business Website'
+              },
+              {
+                title: 'The Curated Table',
+                type: 'Fine Dining',
+                desc: 'Sophisticated restaurant site for an elevated Sri Lankan dining experience.',
+                image: curatedTableMockup,
+                url: 'https://hotel-demo-web.netlify.app',
+                tag: 'Business Website'
+              },
+              {
+                title: 'Atelier',
+                type: 'Gift Shop',
+                desc: 'Premium artisanal gift shop — handcrafted goods with a refined dark aesthetic.',
+                image: atelierMockup,
+                url: 'https://giftshop-pre.netlify.app',
+                tag: 'E-commerce'
+              },
+              {
+                title: 'STICKERBOOK',
+                type: 'Creative Store',
+                desc: 'Playful comic-style e-commerce store for stickers, pens & creative supplies.',
+                image: stickerbookMockup,
+                url: 'https://comic-style.netlify.app',
+                tag: 'E-commerce'
+              }
             ].map((project, index) => (
-              <motion.div 
+              <motion.a
                 key={index}
+                href={project.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 variants={{
                   hidden: { opacity: 0, y: 30 },
                   show: { opacity: 1, y: 0, transition: { duration: 0.6 } }
                 }}
                 className="project-card glass"
+                style={{ textDecoration: 'none', display: 'block' }}
               >
                 <div className="project-image">
                   <img src={project.image} alt={project.title} />
                   <div className="project-overlay">
-                    <span className="project-type">{project.type}</span>
-                    <button className="btn btn-consultation-hero btn-sm" style={{ width: 'auto', padding: '0.75rem 1.5rem' }}>View Demo</button>
+                    <span className="project-type">{project.tag}</span>
+                    <div className="view-live-btn">
+                      <ExternalLink size={16} />
+                      Visit Live Site
+                    </div>
                   </div>
                 </div>
                 <div className="project-info">
+                  <div className="project-meta">
+                    <span className="project-niche">{project.type}</span>
+                  </div>
                   <h3>{project.title}</h3>
+                  <p className="project-desc">{project.desc}</p>
                 </div>
-              </motion.div>
+              </motion.a>
             ))}
           </motion.div>
         </div>
